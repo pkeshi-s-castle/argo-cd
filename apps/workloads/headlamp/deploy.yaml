@@ -19,5 +19,13 @@ spec:
         image: ghcr.io/headlamp-k8s/headlamp:latest
         args:
           - "-in-cluster"
+        env:
+          - name: HEADLAMP_CONFIG_IN_CLUSTER
+            value: "true"
+          - name: HEADLAMP_CONFIG_ENABLE_DYNAMIC_CLUSTERS
+            value: "false"
+          # Helps when serving behind a subpath (which we are)
+          - name: HEADLAMP_CONFIG_BASE_URL
+            value: "/headlamp"
         ports:
         - containerPort: 4466
