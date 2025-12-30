@@ -1,0 +1,6 @@
+operatorConfig:
+  defaultTags:
+    - tag:k8s-operator
+  authKeySecret:
+    name: operator-auth
+    key: TS_AUTHKEY
