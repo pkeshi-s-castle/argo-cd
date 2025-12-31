@@ -1,3 +1,10 @@
 operatorConfig:
   defaultTags:
     - tag:k8s-operator
+
+apiServerProxyConfig:
+  allowImpersonation: true
+  kubernetesAPI:
+    useServiceAccountCA: true
+  serve:
+    https: true
