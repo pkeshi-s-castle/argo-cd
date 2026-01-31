@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: arr-stack
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/pkeshi-s-castle/radagast-gitops.git
+    targetRevision: main
+    path: apps/workloads/arr-stack/
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: entertainment
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true

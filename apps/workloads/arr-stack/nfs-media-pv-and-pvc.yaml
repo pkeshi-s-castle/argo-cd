@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: jellyfin-videos
+  namespace: entertainment
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 4Gi
+  # optional because local-path is default, but I like being explicit:
+  storageClassName: local-path
