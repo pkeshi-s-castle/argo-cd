@@ -7,7 +7,7 @@ spec:
   project: default
   sources:
     # Values repository
-    - repoURL: https://github.com/pkeshi-s-castle/radagast-gitops.git
+    - repoURL: https://github.com/pkeshi-s-castle/argo-cd.git
       targetRevision: main
       ref: values
 
