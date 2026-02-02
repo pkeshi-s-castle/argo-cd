@@ -40,16 +40,3 @@ spec:
       - name: downloads
         persistentVolumeClaim:
           claimName: qbittorrent-download
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: radarr
-  namespace: entertainment
-spec:
-  type: ClusterIP
-  ports:
-    - port: 80
-      targetPort: 7878
-  selector:
-    app: radarr
