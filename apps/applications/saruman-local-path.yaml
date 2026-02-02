@@ -1,19 +1,21 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: arr-stack
+  name: saruman-local-path
   namespace: argocd
+  labels:
+    cluster: saruman
   annotations:
-    argocd.argoproj.io/sync-wave: "10"
+    argocd.argoproj.io/sync-wave: "0"
 spec:
   project: default
   source:
     repoURL: https://github.com/pkeshi-s-castle/argo-cd.git
     targetRevision: main
-    path: apps/workloads/arr-stack/
+    path: apps/workloads/local-path-provisioner
   destination:
     server: https://192.168.1.5:6443
-    namespace: entertainment
+    namespace: local-path-storage
   syncPolicy:
     automated:
       prune: true
