@@ -24,6 +24,8 @@ spec:
           mountPath: /config
         - name: videos
           mountPath: /data/videos
+        - name: tv
+          mountPath: /data/tv
         ports:
         - containerPort: 8096
       volumes:
@@ -33,6 +35,9 @@ spec:
       - name: videos
         persistentVolumeClaim:
           claimName: jellyfin-videos
+      - name: tv
+        persistentVolumeClaim:
+          claimName: sonarr-tv
 ---
 apiVersion: v1
 kind: Service
