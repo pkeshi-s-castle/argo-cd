@@ -33,3 +33,16 @@ spec:
       - name: videos
         persistentVolumeClaim:
           claimName: jellyfin-videos
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: jellyfin
+  namespace: entertainment
+spec:
+  selector:
+    app: jellyfin
+  ports:
+    - name: http
+      port: 8096
+      targetPort: 8096

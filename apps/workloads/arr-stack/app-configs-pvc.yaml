@@ -27,7 +27,7 @@ spec:
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: jackett-config
+  name: jellyfin-config
   namespace: entertainment
 spec:
   accessModes:
@@ -40,7 +40,7 @@ spec:
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: jellyfin-config
+  name: prowlarr-config
   namespace: entertainment
 spec:
   accessModes:
@@ -48,4 +48,4 @@ spec:
   storageClassName: local-path
   resources:
     requests:
-      storage: 2Gi
+      storage: 1Gi
