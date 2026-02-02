@@ -36,7 +36,7 @@ spec:
       volumes:
       - name: config
         persistentVolumeClaim:
-          claimName: qbitt-config
+          claimName: qbittorrent-config
       - name: downloads
         persistentVolumeClaim:
-          claimName: qbitt-download
+          claimName: qbittorrent-download

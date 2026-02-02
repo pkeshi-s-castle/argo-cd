@@ -39,4 +39,4 @@ spec:
           claimName: jellyfin-videos
       - name: downloads
         persistentVolumeClaim:
-          claimName: qbitt-download
+          claimName: qbittorrent-download

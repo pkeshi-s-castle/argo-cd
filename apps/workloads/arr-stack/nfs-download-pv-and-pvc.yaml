@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: qbitt-download
+  name: qbittorrent-download
   namespace: entertainment
 spec:
   accessModes:
