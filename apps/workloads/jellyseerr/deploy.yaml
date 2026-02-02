@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jellyseerr
+  namespace: jellyseerr
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: jellyseerr
+  template:
+    metadata:
+      labels:
+        app: jellyseerr
+    spec:
+      securityContext:
+        runAsUser: 1057
+        runAsGroup: 1056
+        fsGroup: 1056
+        fsGroupChangePolicy: "OnRootMismatch"
+      containers:
+        - name: jellyseerr
+          image: ghcr.io/fallenbagel/jellyseerr:2.7.3
+          ports:
+            - name: http
+              containerPort: 5055
+          env:
+            - name: PUID
+              value: "1057"
+            - name: PGID
+              value: "1056"
+            - name: TZ
+              value: Europe/Dublin
+          securityContext:
+            allowPrivilegeEscalation: false
+            runAsNonRoot: true
+            capabilities:
+              drop: ["ALL"]
+            seccompProfile:
+              type: RuntimeDefault
+          volumeMounts:
+            - name: config
+              mountPath: /app/config
+      volumes:
+        - name: config
+          persistentVolumeClaim:
+            claimName: jellyseerr-config
