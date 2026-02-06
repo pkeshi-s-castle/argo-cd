@@ -12,7 +12,7 @@ spec:
     targetRevision: main
     path: apps/workloads/arr-stack/
   destination:
-    server: https://192.168.1.5:6443
+    server: https://192.168.86.32:6443
     namespace: entertainment
   syncPolicy:
     automated:

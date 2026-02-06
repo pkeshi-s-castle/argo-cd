@@ -14,7 +14,7 @@ spec:
     targetRevision: main
     path: apps/workloads/local-path-provisioner
   destination:
-    server: https://192.168.1.5:6443
+    server: https://192.168.86.32:6443
     namespace: local-path-storage
   syncPolicy:
     automated:
