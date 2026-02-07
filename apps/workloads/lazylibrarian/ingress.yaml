@@ -17,4 +17,4 @@ spec:
               service:
                 name: lazylibrarian-saruman
                 port:
-                  number: 80
+                  number: 30529

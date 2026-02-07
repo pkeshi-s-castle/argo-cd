@@ -4,19 +4,8 @@ metadata:
   name: lazylibrarian-saruman
   namespace: lazylibrarian
 spec:
+  type: ExternalName
+  externalName: 192.168.86.32.nip.io
   ports:
     - name: http
-      port: 80
-      targetPort: 5299
----
-apiVersion: v1
-kind: Endpoints
-metadata:
-  name: lazylibrarian-saruman
-  namespace: lazylibrarian
-subsets:
-  - addresses:
-      - ip: 192.168.86.32
-    ports:
-      - port: 30529
-        name: http
+      port: 30529
