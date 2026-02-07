@@ -1,0 +1,58 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lazylibrarian
+  namespace: entertainment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: lazylibrarian
+  template:
+    metadata:
+      labels:
+        app: lazylibrarian
+    spec:
+      containers:
+        - name: lazylibrarian
+          image: lscr.io/linuxserver/lazylibrarian:68b1819c-ls38
+          env:
+            - name: PUID
+              value: "1057"
+            - name: PGID
+              value: "1056"
+            - name: TZ
+              value: Europe/Dublin
+          ports:
+            - name: http
+              containerPort: 5299
+          volumeMounts:
+            - name: config
+              mountPath: /config
+            - name: books
+              mountPath: /books
+            - name: downloads
+              mountPath: /downloads
+      volumes:
+        - name: config
+          persistentVolumeClaim:
+            claimName: lazylibrarian-config
+        - name: books
+          persistentVolumeClaim:
+            claimName: lazylibrarian-books
+        - name: downloads
+          persistentVolumeClaim:
+            claimName: qbittorrent-download
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: lazylibrarian
+  namespace: entertainment
+spec:
+  selector:
+    app: lazylibrarian
+  ports:
+    - name: http
+      port: 5299
+      targetPort: 5299
