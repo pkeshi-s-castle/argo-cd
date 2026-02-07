@@ -71,3 +71,18 @@ spec:
     - port: 8989
       targetPort: 8989
       nodePort: 30899
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: lazylibrarian-nodeport
+  namespace: entertainment
+spec:
+  type: NodePort
+  selector:
+    app: lazylibrarian
+  ports:
+    - name: http
+      port: 5299
+      targetPort: 5299
+      nodePort: 30529
