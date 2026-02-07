@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: lazylibrarian
-          image: lscr.io/linuxserver/lazylibrarian:latest
+          image: lscr.io/linuxserver/lazylibrarian:68b1819c-ls38
           env:
             - name: PUID
               value: "1057"
