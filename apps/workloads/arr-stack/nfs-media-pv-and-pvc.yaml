@@ -24,16 +24,3 @@ spec:
     requests:
       storage: 20Gi
   storageClassName: local-path
----
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: lazylibrarian-books
-  namespace: entertainment
-spec:
-  accessModes:
-    - ReadWriteOnce
-  resources:
-    requests:
-      storage: 20Gi
-  storageClassName: local-path
